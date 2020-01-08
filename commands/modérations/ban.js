@@ -7,7 +7,7 @@ module.exports = {
   permission: ["BAN_MEMBERS"],
   category: ":rotating_light: Modérations",
   description: "Bannir un membre",
-  usage: "p!ban <mention> <raison>",
+  usage: "ban <mention> <raison>",
   run: async (client, message, args, lang) => {
     if (message.deletable) message.delete();
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) {

@@ -1,6 +1,11 @@
 const { Client, Collection, version } = require("discord.js");
 const { config } = require("dotenv");
+const lowdb = require("lowdb");
+const fileSync = require("lowdb/adapters/FileSync.js");
+const adapter = new fileSync("prefix.json");
+const dbp = lowdb(adapter);
 const fs = require("fs");
+const Enmap = require("enmap");
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -19,7 +24,9 @@ const client = new Client({
 client.config = require("./config.json");
 client.commands = new Collection();
 client.aliases = new Collection();
-
+client.welcome = new Enmap({
+  name: "welcome"
+});
 client.categories = fs.readdirSync("./commands/");
 
 ["command"].forEach(handler => {
@@ -35,6 +42,5 @@ fs.readdir("./events/", (err, files) => {
     client.on(evtName, evt.bind(null, client));
   });
 });
-    
 
-client.login("NjU4NTc5NTAzMTM1NTg4Mzky.XgB0AA.krJhk8DfXi8LkujwsYRltw1xnpE");
+client.login("NjU4NTc5NTAzMTM1NTg4Mzky.Xg9Vgg.Cn1ESvf151EsI7bbLAhD-m_WDAQ");

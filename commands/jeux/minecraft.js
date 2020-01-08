@@ -1,6 +1,6 @@
 module.exports = {
   name: "minecraft",
-  usage: "p!minecraft <adresse ip>",
+  usage: "minecraft <adresse ip>",
   description: "Affiche les informations d'un serveur minecraft.",
   permission: ["SEND_MESSAGES"],
   category: ":video_game: Jeux",

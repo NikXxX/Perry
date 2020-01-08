@@ -7,9 +7,14 @@ module.exports = {
   aliases: ["h", "aide"],
   category: "ℹ️ Informations",
   description: "Affiche ce menu d'aide.",
-  usage: "p!help [commande | alias]",
+  usage: "help [commande | alias]",
   permission: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
+  const lowdb = require("lowdb");
+  const fileSync = require("lowdb/adapters/FileSync.js");
+  const adapter = new fileSync("prefix.json");
+  const db = lowdb(adapter);
+  const prefix = db.get("prefixe").find({id: message.guild.id}).value().prefix
     if (args[0]) {
       return getCMD(client, message, args[0]);
     } else {
@@ -40,13 +45,13 @@ module.exports = {
           `${client.user.displayAvatarURL({ format: "png" })}`
         )
         .setFooter(`p!help <commande> pour afficher l'aide de la commandes.`);
-      categories.sort((a,b) => { return a.categories - b.categories}).map(async c => {
+      categories.sort((a,b) => a.category).map(async c => {
         embed.addField(
           c + " - (" + client.commands.map(r => r.category).filter(q => q === c).length+")",
           client.commands
             
             .filter(command => command.category === c)
-            .map(command => `\`${command.name}\``)
+            .map(command => `\`${command.name}\` `)
             .join(" , "),
           false
         )
@@ -74,7 +79,7 @@ module.exports = {
       if (cmd.aliases)
         info += `\n- \`Aliases\` : ${cmd.aliases.map(a => `${a}`).join(" , ")}`;
       if (cmd.description) info += `\n- \`Description\` : ${cmd.description}`;
-      if (cmd.usage) info += `\n- \`Utilisation\`: ${cmd.usage}`;
+      if (cmd.usage) info += `\n- \`Utilisation\`: ${prefix + cmd.usage}`;
       if (cmd.category) info += `\n- \`Catégorie\` : ${cmd.category}`;
       embed.setFooter(`Syntaxes: <> = obligatoire, [] = optionel`);
 

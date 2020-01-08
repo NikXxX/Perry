@@ -3,7 +3,7 @@ module.exports = {
   description: "Répond aléatoirement à votre question.",
   category: ":tada: Fun",
   permission: ["SEND_MESSAGES"],
-  usage: "p!8ball <question>",
+  usage: "8ball <question>",
   run: async (client, message, args) => {
    let i = args.join(" ")
     if (!args.slice(1).join(" "))

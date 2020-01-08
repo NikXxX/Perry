@@ -10,7 +10,7 @@ module.exports = {
   category: "ℹ️ Informations",
   description: "Donne des informations sur un utilisateurs.",
   permission: ["SEND_MESSAGES"],
-  usage: "p!userinfos <pseudo | id | mention | discriminateur>",
+  usage: "userinfos <pseudo | id | mention | discriminateur>",
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));
 

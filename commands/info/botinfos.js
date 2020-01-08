@@ -4,7 +4,7 @@ module.exports = {
   category: "ℹ️ Informations",
   permission: ["SEND_MESSAGES"],
   description: "Donne les informations de Perry",
-  usage: "p!botinfos",
+  usage: "botinfos",
   run: (client, message) => {
     // const vr = require("./package.json")
     const Discord = require("discord.js");

@@ -4,7 +4,7 @@ module.exports = {
   aliases: ["ae"],
   category: ":rotating_light: Modérations",
   description: "Ajoute un emojis.",
-  usage: "p!addemote <url> <nom>",
+  usage: "addemote <url> <nom>",
   permission: ["MANAGE_EMOJIS"],
   run: async (client, message, args, lang) => {
     if (!message.guild.member(client.user).hasPermission("MANAGE_EMOJIS"))

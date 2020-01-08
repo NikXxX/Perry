@@ -5,7 +5,7 @@ module.exports = {
   category: ":rotating_light: Modérations",
   description: "Effacer des messages.",
   permission: ["MANAGE_MESSAGES"],
-  usage: "p!clear < de 1 à 100>",
+  usage: "clear < de 1 à 100>",
   run: async (client, message, args) => {
     if (message.deletable) {
       message.delete();

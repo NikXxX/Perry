@@ -10,7 +10,7 @@ module.exports = {
   aliases: ["fnc"],
   category: ":video_game: Jeux",
   description: "Affiche les défis de fortnite.",
-  usage: "p!fnchallenge",
+  usage: "fnchallenge",
   permission: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
     const c = await ft.challenges();

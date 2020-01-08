@@ -7,7 +7,7 @@ module.exports = {
   description: "Met le filtre blur sur une image.",
   permission: ["SEND_MESSAGES"],
   category: "🎞️ Filtres",
-  usage: "p!blur < username | mention | id >",
+  usage: "blur < username | mention | id >",
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));
     if(!member) return message.reply(`**Utilisation**: p!${endpoint} < username | mention | id >`)

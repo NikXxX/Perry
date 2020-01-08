@@ -1,7 +1,7 @@
 module.exports = {
   name: "calcul",
   aliases: ["calc"],
-  usage: "p!calcul <expression>",
+  usage: "calcul <expression>",
   category: ":tools: Utilitaires",
   description: "Résoudre une expression.",
   permission: ["SEND_MESSAGES"],

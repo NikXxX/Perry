@@ -5,6 +5,7 @@ dependencies:
   ascii-art: 2.5.0
   ascii-table: 0.0.9
   axios: 0.19.0
+  better-sqlite-pool: 0.2.2
   blague.xyz: 1.0.6
   body-parser: 1.19.0
   canvas: 2.6.1
@@ -13,12 +14,14 @@ dependencies:
   discord-giveaways: 2.4.4
   discord.js: github.com/discordjs/discord.js/710101c5805935d7804fc8e53fa130541f248c54
   dotenv: 8.2.0
+  enmap: 5.2.4
   express: 4.17.1
   express-session: 1.17.0
   fortnite: 4.3.2
   fs: 0.0.2
   http: 0.0.0
   https: 1.0.0
+  lowdb: 1.0.0
   math-expression-evaluator: 1.2.17
   moment: 2.24.0
   node-fetch: 2.6.0
@@ -26,6 +29,8 @@ dependencies:
   passport-discord: 0.1.3
   path: 0.12.7
   snekfetch: 4.0.4
+  url: 0.11.0
+  weather-js: 2.0.0
 packages:
   /@discordjs/collection/0.1.3:
     dev: false
@@ -262,6 +267,23 @@ packages:
     dev: false
     resolution:
       integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
+  /better-sqlite-pool/0.2.2:
+    dependencies:
+      better-sqlite3: 5.4.3
+      lodash: 4.17.15
+    dev: false
+    engines:
+      node: '>=8.0'
+    resolution:
+      integrity: sha512-EZCfYtrc80kGSQ4AXLChEeSV5agMF8BSRqBaH4X852Nk0qoCA1GFv5j9r5JjpUDlQR0GDa10rosivMX15CH+Dw==
+  /better-sqlite3/5.4.3:
+    dependencies:
+      integer: 2.1.0
+      tar: 4.4.13
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-fPp+8f363qQIhuhLyjI4bu657J/FfMtgiiHKfaTsj3RWDkHlWC1yT7c6kHZDnBxzQVoAINuzg553qKmZ4F1rEw==
   /blague.xyz/1.0.6:
     dev: false
     resolution:
@@ -785,6 +807,14 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /enmap/5.2.4:
+    dependencies:
+      lodash: 4.17.15
+    dev: false
+    peerDependencies:
+      better-sqlite3: ^5.4.1
+    resolution:
+      integrity: sha512-YulKPmB3t08i1aBDBDgEew9gAWYWXVuGe8S3DLYRQ+E0FoVxTTzo2iSfcEmUX9DRLuKLDMRLRcbRqX5J0z55Uw==
   /escape-html/1.0.3:
     dev: false
     resolution:
@@ -1016,6 +1046,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
+  /graceful-fs/4.2.3:
+    dev: false
+    resolution:
+      integrity: sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
   /har-schema/2.0.0:
     dev: false
     engines:
@@ -1111,6 +1145,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+  /integer/2.1.0:
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-vBtiSgrEiNocWvvZX1RVfeOKa2mCHLZQ2p9nkQkQZ/BvEiY+6CcUz0eyjvIiewjJoeNidzg2I+tpPJvpyspL1w==
   /ipaddr.js/1.9.0:
     dev: false
     engines:
@@ -1143,6 +1182,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==
+  /is-promise/2.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-eaKp7OfwlugPNtKy87wWwf9L8/o=
   /is-typedarray/1.0.0:
     dev: false
     resolution:
@@ -1236,6 +1279,18 @@ packages:
     dev: false
     resolution:
       integrity: sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
+  /lowdb/1.0.0:
+    dependencies:
+      graceful-fs: 4.2.3
+      is-promise: 2.1.0
+      lodash: 4.17.15
+      pify: 3.0.0
+      steno: 0.4.4
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-2+x8esE/Wb9SQ1F9IHaYWfsC9FIecLOPrK4g17FGEayjUWH172H6nwicRovGvSE2CPZouc2MCIqCI7h9d+GftQ==
   /maplex/0.0.2:
     dependencies:
       async: 2.6.3
@@ -1574,6 +1629,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+  /pify/3.0.0:
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
   /prism-media/0.0.3:
     dev: false
     resolution:
@@ -1609,6 +1670,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-SYKKmVel98NCOYXpkwUqZqh0ahZeeKfmisiLIcEZdsb+WbLv02g/dI5BUmZnIyOe7RzZtLax81nnb2HbvC2tzA==
+  /punycode/1.3.2:
+    dev: false
+    resolution:
+      integrity: sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0=
   /punycode/1.4.1:
     dev: false
     resolution:
@@ -1631,6 +1696,12 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
+  /querystring/0.2.0:
+    dev: false
+    engines:
+      node: '>=0.4.x'
+    resolution:
+      integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
   /random-bytes/1.0.0:
     dev: false
     engines:
@@ -1858,6 +1929,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+  /steno/0.4.4:
+    dependencies:
+      graceful-fs: 4.2.3
+    dev: false
+    resolution:
+      integrity: sha1-BxEFvfwobmYVwEA8J+nXtdy4Vcs=
   /strangler/1.1.2:
     dependencies:
       extended-emitter: 1.0.3
@@ -2035,6 +2112,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-KY9Frmirql91X2Qgjry0Wd4Y+YTdrdZheS8TFwvkbLWf/G5KNJDCh6pKL5OZctEW4+0Baa5idK2ZQuELRwPznQ==
+  /url/0.11.0:
+    dependencies:
+      punycode: 1.3.2
+      querystring: 0.2.0
+    dev: false
+    resolution:
+      integrity: sha1-ODjpfPxgUh63PFJajlW/3Z4uKPE=
   /util-deprecate/1.0.2:
     dev: false
     resolution:
@@ -2072,6 +2156,13 @@ packages:
       '0': node >=0.6.0
     resolution:
       integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=
+  /weather-js/2.0.0:
+    dependencies:
+      request: 2.88.0
+      xml2js: 0.4.23
+    dev: false
+    resolution:
+      integrity: sha1-DZvNsFpPhNBrm585kAKKYB6kofw=
   /which-module/2.0.0:
     dev: false
     resolution:
@@ -2115,6 +2206,21 @@ packages:
       utf-8-validate: ^5.0.2
     resolution:
       integrity: sha512-sucePNSafamSKoOqoNfBd8V0StlkzJKL2ZAhGQinCfNQ+oacw+Pk7lcdAElecBF2VkLNZRiIb5Oi1Q5lVUVt2A==
+  /xml2js/0.4.23:
+    dependencies:
+      sax: 1.2.4
+      xmlbuilder: 11.0.1
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==
+  /xmlbuilder/11.0.1:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
   /y18n/4.0.0:
     dev: false
     resolution:
@@ -2190,6 +2296,7 @@ specifiers:
   ascii-art: ^2.5.0
   ascii-table: ^0.0.9
   axios: ^0.19.0
+  better-sqlite-pool: ^0.2.2
   blague.xyz: ^1.0.6
   body-parser: ^1.19.0
   canvas: ^2.6.1
@@ -2198,12 +2305,14 @@ specifiers:
   discord-giveaways: ^2.4.4
   discord.js: 'github:discordjs/discord.js'
   dotenv: ^8.2.0
+  enmap: ^5.2.4
   express: ^4.17.1
   express-session: ^1.16.1
   fortnite: ^4.3.2
   fs: ^0.0.2
   http: ^0.0.0
   https: ^1.0.0
+  lowdb: ^1.0.0
   math-expression-evaluator: ^1.2.17
   moment: ^2.24.0
   node-fetch: ^2.6.0
@@ -2211,3 +2320,5 @@ specifiers:
   passport-discord: ^0.1.3
   path: ^0.12.7
   snekfetch: ^4.0.4
+  url: ^0.11.0
+  weather-js: ^2.0.0

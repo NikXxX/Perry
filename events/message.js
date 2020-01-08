@@ -1,5 +1,25 @@
 module.exports = async (client, message) => {
-  const prefix = "p!";
+  const lowdb = require("lowdb");
+  const fileSync = require("lowdb/adapters/FileSync.js");
+  const adapter = new fileSync("prefix.json");
+  const db = lowdb(adapter);
+  if (
+    !db
+      .get("prefixe")
+      .find({ id: message.guild.id })
+      .value()
+  ) {
+    db.get("prefixe")
+      .push({
+        id: message.guild.id, //[0]
+        prefix: "p!" //[1]
+      })
+      .write();
+  }
+  const prefix = db.get('prefixe').find({ id: message.guild.id} ).value().prefix
+  const prefixe = db.get("prefixe").find({id: message.guild.id}).value()
+  //console.log(prefix)
+  const moment = require("moment");
   const { MessageEmbed } = require("discord.js");
   const embed = new MessageEmbed();
   let lang = require("../langs/fr");
@@ -29,7 +49,7 @@ module.exports = async (client, message) => {
       if (!message.member.hasPermission(p)) permission = false;
     });
 
-    if (permission) command.run(client, message, args, lang, embed);
+    if (permission) command.run(client, message, args, lang, embed,prefix);
 
     if (!permission)
       return message.reply(
@@ -37,7 +57,7 @@ module.exports = async (client, message) => {
       );
   }
   if (message.content.includes(`<@${client.user.id}>`))
-    return message.reply("Mon préfix est `p!`.");
+    return message.reply(`Mon préfix est \`${prefix}\`.`);
 };
 module.exports.config = {
   name: "message",

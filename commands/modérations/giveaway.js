@@ -1,7 +1,8 @@
 module.exports = {
   name: "giveaway",
-  permission: ["SEND_MESSAGES"],
+  permission: ["MANAGE_SERVER"],
   category: ":rotating_light: Modérations",
+  usage: "giveaway <start/delete>",
   run: async (client, message, args) => {
     const ms = require("ms");
     const giveaways = require("discord-giveaways");
@@ -15,6 +16,7 @@ module.exports = {
     if (option === "start") {
       if (!args[1])
         return message.reply("Veuillez définir le temps du giveaway.");
+     if(ms(args[1]) < ms("10s")) return message.reply("Le giveaway doit durer plus de 10 secondes!")     
       if (ms(args[1]) > ms("15d"))
         return message.reply(
           "Le temps du giveaway doit être inférieur à 15 jours."
@@ -25,23 +27,24 @@ module.exports = {
         );
       if (isNaN(args[2]))
         return message.reply("Veuillez écrire le nombre en chiffre.");
-      if (!args.slice(3).join(" "))
+    if (!args.slice(3).join(" "))
         return message.reply("Veuillez définir la récompense du giveaway.");
+      
       giveaways
         .start(message.channel, {
           time: ms(args[1]),
           prize: "🎁 " + args.slice(3).join(" ") + " 🎁",
           winnersCount: parseInt(args[2]),
           messages: {
-            giveaway: "🎉🎉 **GIVEAWAY** 🎉🎉",
-            giveawayEnded: "🎉🎉 **GIVEAWAY TERMINÉ** 🎉🎉",
+            giveaway: "_ _",
+            giveawayEnded: "_ _",
             timeRemaining: "Temps restant : **{duration}**!",
             inviteToParticipate: "Cliquez sur la réaction 🎉 pour participer!",
             winMessage: "Félicitation, {winners}! Tu gagnes **{prize}**!",
             embedFooter: "Giveaways",
-            noWinner: "Giveaway annulé.",
+            noWinner: "Giveaway annulé.Aucun utilisateur a participer au giveaway!",
             winners: "gagnant(s)",
-            endedAt: "Fini",
+            endedAt: "Terminé",
             units: {
               seconds: "secondes",
               minutes: "minutes",

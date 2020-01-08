@@ -7,7 +7,7 @@ module.exports = {
   permission: ["KICK_MEMBERS"],
   category: ":rotating_light: Modérations",
   description: "Expulser un membre",
-  usage: "p!kick <mention> <raison>",
+  usage: "kick <mention> <raison>",
   run: async (client, message, args, lang) => {
     if (message.deletable) message.delete();
 

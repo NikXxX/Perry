@@ -7,7 +7,7 @@ module.exports = {
   description: `Génère une image ${endpoint} sur une image.`,
   permission: ["SEND_MESSAGES"],
   category: ":camping: Images",
-  usage: `p!${endpoint} < username | mention | id >`,
+  usage: `${endpoint} < username | mention | id >`,
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));
     if(!member) return message.reply(`**Utilisation**: p!${endpoint} < username | mention | id >`)

@@ -7,7 +7,7 @@ module.exports = {
   description: `Met le filtre ${endpoint} sur une image.`,
   permission: ["SEND_MESSAGES"],
   category: "🎞️ Filtres",
-  usage: `p!${endpoint} < username | mention | id >`,
+  usage: `${endpoint} < username | mention | id >`,
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));
     if(!member) return message.reply(`**Utilisation**: p!${endpoint} < username | mention | id >`)

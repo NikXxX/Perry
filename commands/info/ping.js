@@ -2,7 +2,7 @@ module.exports = {
     ownerOnly:false,
     name: "ping",
     aliases: ["p"],
-    usage: "p!ping",
+    usage: "ping",
     category: "ℹ️ Informations",
     description: "Donne la latence du bot.",
     permission: ["SEND_MESSAGES"],

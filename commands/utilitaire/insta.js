@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["insta"],
   category: ":tools: Utilitaires",
   description: "Affiche le profil instagram d'une personne.",
-  usage: "p!instagram <nom>",
+  usage: "instagram <nom>",
   permission: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
     const name = args.join(" ");

@@ -2,30 +2,43 @@ module.exports = {
   name: "viedemerde",
   category: ":tada: Fun",
   aliases: ["vdm"],
-  usage: "p!viedemerde",
+  usage: "viedemerde",
   permission: ["SEND_MESSAGES"],
   run: async (client, message, args) => {
-    const { Client } = require("arisia-api");
-    const ari = new Client();
-    ari.divers
-      .vdm()
-      .then(e =>
-        message.channel
-          .send({
-            embed: {
-              title: "Vie de merde",
-              color: 0x2BFAFA, //client.config.EMBED.COLOR,
-              description: e.url
-            }
-          })
-          .then(
+    const axios = require("axios");
+    const token =
+      "hXQhg8DAkcqnmTSQYDZSXzHcJ2PooNmFIMSMb6jaya_eTjfCHu2SB4UiW0Lcu-S-";
+    const { MessageEmbed } = require("discord.js");
+    const embed = new MessageEmbed().setColor("2BFAFA");
+
+    axios({
+      method: "get",
+      url: "https://blague.xyz/api/vdm/random",
+      responseType: "application/JSON",
+      headers: {
+        Authorization: token
+      }
+    }).then(joke => {
+      
+      if (joke.data.status === 200) {
+        embed
+          .setTitle("•__Vie de merde__•")
+          .setDescription(
+            joke.data.vdm.content
+          )
+          .setTimestamp()
+          .setFooter(
+            client.user.username,
+            client.user.avatarURL({ format: "png" })
+          );
+        message.channel.send(embed).then(
             msg =>
               msg.react("🙁") &&
               msg.react("😃") &&
               msg.react("😱") &&
               msg.react("😂")
           )
-      )
-      .catch(err => message.channel.send("Une erreur est survenue : " + err));
+        } else { message.reply("Une erreur est survenue.")}
+    })
   }
 };
