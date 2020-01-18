@@ -62,7 +62,7 @@ client.giveawaysManager = new GiveawaysManager(client, {
 });
 
 const { Player } = require("discord-player");
-const player = new Player(client, "AIzaSyCSeZlhNMUi7X1EqAM6dTHHG6Rh-daWaL8", {
+const player = new Player(client, "", {
   leaveOnStop: true,
   leaveOnEnd: true,
   leaveOnEmpty: true
