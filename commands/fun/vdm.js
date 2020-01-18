@@ -1,9 +1,9 @@
 module.exports = {
   name: "viedemerde",
-  category: ":tada: Fun",
+  category: "<:fun:667627121107271681> Fun",
   aliases: ["vdm"],
   usage: "viedemerde",
-  permission: ["SEND_MESSAGES"],
+  permission: [],
   run: async (client, message, args) => {
     const axios = require("axios");
     const token =

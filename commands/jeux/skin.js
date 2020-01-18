@@ -1,8 +1,8 @@
 module.exports = {
   name: "skin",
   usage: "skin <username>",
-  permission: ["SEND_MESSAGES"],
-  category: ":video_game: Jeux",
+  permission: [],
+  category: "<:general:667626887014514698> Général",
   run: async (client, message, args) => {
     const { MessageEmbed } = require("discord.js");
     const text = args

@@ -8,10 +8,10 @@ module.exports = {
   ownerOnly: false,
   name: "fnshop",
   aliases: ["ft"],
-  category: ":video_game: Jeux",
+  category: "<:general:667626887014514698> Général",
   description: "Affiche le shop de fortnite.",
   usage: "fnshop",
-  permission: ["SEND_MESSAGES"],
+  permission: [],
   run: async (client, message, args) => {
     const store = await ft.store();
 

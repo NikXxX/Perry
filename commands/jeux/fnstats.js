@@ -2,8 +2,8 @@ module.exports = {
   name: "fnstats",
   aliases: ["ft", "fortnite"],
   description: "Affiche les stats fortnite d'un joueur.",
-  permission: ["SEND_MESSAGES"],
-  category: ":video_game: Jeux",
+  permission: [],
+  category: "<:general:667626887014514698> Général",
   usage: "fnstats <platform> <pseudo>",
   run: async (client, message, args) => {
     const Discord = require("discord.js");

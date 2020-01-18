@@ -1,8 +1,8 @@
 module.exports = {
   name: "shorturl",
-  category: ":tools: Utilitaires",
+  category: "<:general:667626887014514698> Général",
   usage: "shorturl <lien>",
-  permission: ["SEND_MESSAGES"],
+  permission: [],
   run: async (client, message, args) => {
     const Discord = require("discord.js");
     const fetch = require("node-fetch");

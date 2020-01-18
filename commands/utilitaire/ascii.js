@@ -1,9 +1,9 @@
 module.exports = {
   name: "ascii",
   usage: "ascii <texte>",
-  permission: ["SEND_MESSAGES"],
+  permission: [],
   description: "Met votre texte en ascii.",
-  category: ":tools: Utilitaires",
+  category: "<:general:667626887014514698> Général",
   run: async (client, message, args) => {
     const ascii = require("ascii-art");
 

@@ -2,8 +2,8 @@ module.exports = {
   name: "minecraft",
   usage: "minecraft <adresse ip>",
   description: "Affiche les informations d'un serveur minecraft.",
-  permission: ["SEND_MESSAGES"],
-  category: ":video_game: Jeux",
+  permission: [],
+  category: "<:general:667626887014514698> Général",
   run: async (client, message, args) => {
     const axios = require("axios");
     const { MessageEmbed } = require("discord.js")

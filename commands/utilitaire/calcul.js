@@ -2,9 +2,9 @@ module.exports = {
   name: "calcul",
   aliases: ["calc"],
   usage: "calcul <expression>",
-  category: ":tools: Utilitaires",
+  category: "<:general:667626887014514698> Général",
   description: "Résoudre une expression.",
-  permission: ["SEND_MESSAGES"],
+  permission: [],
   run: async (client, message, args) => {
     const Discord = require("discord.js");
     const math = require("math-expression-evaluator");

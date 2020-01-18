@@ -1,13 +1,13 @@
 const { get } = require("axios");
-const endpoint = "posterize";
+const endpoint = "blur";
 const { getMember } = require("../../functions.js");
 
 module.exports = {
   name: endpoint,
-  description: `Met le filtre ${endpoint} sur une image.`,
+  description: "Met le filtre blur sur une image.",
   permission: ["SEND_MESSAGES"],
-  category: "🎞️ Filtres",
-  usage: `${endpoint} < username | mention | id >`,
+  category: "<:picture:667629000708980785> Images",
+  usage: "blur < username | mention | id >",
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));
     if(!member) return message.reply(`**Utilisation**: p!${endpoint} < username | mention | id >`)

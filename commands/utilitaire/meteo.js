@@ -1,9 +1,9 @@
 module.exports = {
   name: "meteo",
   aliases: ["weather"],
-  permission: ["SEND_MESSAGES"],
+  permission: [],
   usage: "meteo <lieu>",
-  category: ":tools: Utilitaires",
+  category: "<:general:667626887014514698> Général",
   run: (client, message, args) => {
     const { MessageEmbed } = require("discord.js");
     const weather = require("weather-js");

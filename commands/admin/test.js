@@ -1,7 +1,7 @@
 module.exports = {
   name: "test",
   permission: ["ADMINISTRATOR"],
-  category: "<:admin:653177096465809413> Owner",
+  category: "<:owner:667627445830156298> Owner",
 
   run: async (client, message) => {
     client.emit(
@@ -9,4 +9,4 @@ module.exports = {
       message.member || (await message.guild.fetchMember(message.author))
     );
   }
-};
+}

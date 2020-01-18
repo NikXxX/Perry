@@ -1,7 +1,7 @@
 module.exports = {
   name: "blague",
-  permission: ["SEND_MESSAGES"],
-  category: ":tada: Fun",
+  permission: [],
+  category: "<:fun:667627121107271681> Fun",
   usage: "blague",
   description: "Fait un blague aléatoire.",
   run: async (client, message, args) => {

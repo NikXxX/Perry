@@ -6,7 +6,7 @@ module.exports = {
   name: endpoint,
   description: `Génère une image ${endpoint} sur une image.`,
   permission: ["SEND_MESSAGES"],
-  category: ":camping: Images",
+  category: "<:picture:667629000708980785> Images",
   usage: `${endpoint} < username | mention | id >`,
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));

@@ -5,13 +5,20 @@ const { promptMessage } = require("../../functions.js");
 module.exports = {
   name: "kick",
   permission: ["KICK_MEMBERS"],
-  category: ":rotating_light: Modérations",
+  category: "<:badge:667634037988261888> Modérations",
   description: "Expulser un membre",
   usage: "kick <mention> <raison>",
   run: async (client, message, args, lang) => {
     if (message.deletable) message.delete();
 
-    const toBan = message.mentions.members.first();
+    
+
+    if (!message.guild.me.hasPermission("KICK_MEMBERS")) {
+      return message.reply(lang.kick.nopermbot);
+    }
+   if (!message.guild.member(message.author).hasPermission("BAN_MEMBERS"))
+      return message.reply("Vous n'avez pas la permission `BAN_MEMBERS`");
+  const toBan = message.mentions.members.first();
 
     if (!toBan) {
       return message.reply(lang.kick.nomention);
@@ -19,10 +26,6 @@ module.exports = {
 
     if (!args[1]) {
       return message.reply(lang.kick.noreason);
-    }
-
-    if (!message.guild.me.hasPermission("KICK_MEMBERS")) {
-      return message.reply(lang.kick.nopermbot);
     }
     if (toBan.id === message.author.id) {
       return message.reply(lang.kick.autokickuser);

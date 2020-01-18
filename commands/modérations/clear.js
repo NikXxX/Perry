@@ -2,7 +2,7 @@ module.exports = {
   ownerOnly: false,
   name: "clear",
   aliases: ["purge", "nuke"],
-  category: ":rotating_light: Modérations",
+  category: "<:badge:667634037988261888> Modérations",
   description: "Effacer des messages.",
   permission: ["MANAGE_MESSAGES"],
   usage: "clear < de 1 à 100>",
@@ -10,21 +10,23 @@ module.exports = {
     if (message.deletable) {
       message.delete();
     }
-    if(!args[0]) return message.reply("Veuillez saisir le nombre de message à supprimer.")
-    if (Number.isNaN(args[0]) || parseInt(args[0]) <= 0) {
-      return message.reply(
-        "Vous devez préciser un **nombre** de messages à supprimer."
-      );
-    }
+    
 
     if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) {
       return message
         .reply(
           "Je n'ai pas la permission `MANAGE_MESSAGES`. Attribuez-la moi et recommencez l'opération."
         )
-        .then(m => m.delete(5000));
+        //.then(m => m.delete(5000));
     }
-
+ if (!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES"))
+      return message.reply("Vous n'avez pas la permission `MANAGE_MESSAGES`");
+   if(!args[0]) return message.reply("Veuillez saisir le nombre de message à supprimer.")
+    if (Number.isNaN(args[0]) || parseInt(args[0]) <= 0) {
+      return message.reply(
+        "Vous devez préciser un **nombre** de messages à supprimer."
+      );
+    }
     let deleteAmount;
 
     if (parseInt(args[0]) > 100) {

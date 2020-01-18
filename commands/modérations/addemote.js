@@ -2,11 +2,13 @@ module.exports = {
   ownerOnly: false,
   name: "addemote",
   aliases: ["ae"],
-  category: ":rotating_light: Modérations",
+  category: "<:badge:667634037988261888> Modérations",
   description: "Ajoute un emojis.",
   usage: "addemote <url> <nom>",
   permission: ["MANAGE_EMOJIS"],
   run: async (client, message, args, lang) => {
+    if (!message.guild.member(message.author).hasPermission("MANAGE_EMOJIS"))
+      return message.reply(lang.addemote.nopermuser);
     if (!message.guild.member(client.user).hasPermission("MANAGE_EMOJIS"))
       return message.reply(lang.addemote.nopermbot);
     let url = args[0];

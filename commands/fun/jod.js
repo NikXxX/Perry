@@ -1,7 +1,7 @@
 module.exports = {
   name: "jokeofday",
-  permission: ["SEND_MESSAGES"],
-  category: ":tada: Fun",
+  permission: [],
+  category: "<:fun:667627121107271681> Fun",
   usage: "jokeofday",
   aliases: ["jod", "joke"],
   description: "Fait la blague du jour.",

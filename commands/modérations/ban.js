@@ -5,13 +5,16 @@ const { promptMessage } = require("../../functions.js");
 module.exports = {
   name: "ban",
   permission: ["BAN_MEMBERS"],
-  category: ":rotating_light: Modérations",
+  category: "<:badge:667634037988261888> Modérations",
   description: "Bannir un membre",
   usage: "ban <mention> <raison>",
   run: async (client, message, args, lang) => {
     if (message.deletable) message.delete();
+      if (!message.guild.member(message.author).hasPermission("BAN_MEMBERS"))
+      return message.reply(lang.ban.nopermuser);
+   
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
-      return message.reply(lang.ban.nopermbot);
+    return message.reply(lang.ban.nopermbot);
     }
 
     const toBan = message.mentions.members.first();

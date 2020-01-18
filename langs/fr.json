@@ -1,5 +1,6 @@
 {
   "addemote": {
+    "nopermuser":"vous n'avez pa la permission `MANAGE_EMOJIS`",
     "nourl": "Veuillez préciser l'URL de l'emoji que vous souhaitez ajouter.",
     "noname": "Veuillez préciser le nom de l'emoji que vous souhaitez ajouter.",
     "nopermbot": "Je n'ai pas la permission `MANAGE_EMOJIS`. Attribuez-la moi et recommencez l'opération.",
@@ -9,6 +10,7 @@
   },
   "ban": {
     "nopermbot": "je n'ai pas la permission `BAN_MEMBERS`. Attribuez-la moi et recommencez l'opération.",
+    "nopermuser": "vous n'avez pas la permission `BAN_MEMBERS`",
     "nomention": "veuillez préciser l'utilisateur à bannir (en le mentionnant).",
     "noreason": "veuillez préciser la raison du bannissement.",
     "autobanuser": "vous ne pouvez pas vous bannir vous-même.",
@@ -24,5 +26,8 @@
     "autokickuser": "je ne peux pas m'expulser moi-même.",
     "errban": "je ne peux pas expulser cet utilisateur!",
     "succesban": "a bien été expulsé du serveur!"
+  },
+  "xp": {
+    "noactive": "Le système d'expérience n'est pas activé sur ce serveur!Pour l'activer veuillez faire : "
   }
 }

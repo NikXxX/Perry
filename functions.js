@@ -26,7 +26,33 @@ module.exports = {
 
     return target;
   },
+getMemberR: function(message, toFind = "") {
+    toFind = toFind.toLowerCase();
 
+    let target = message.guild.members.get(toFind);
+
+    if (!target && message.mentions.members)
+      target = message.mentions.members.first();
+
+    if (!target && toFind) {
+      target = message.guild.members.find(member => {
+        return member.user.username.toLowerCase().includes(toFind);
+      });
+    }
+    if (!target && toFind) {
+      target = message.guild.members.find(member => {
+        return member.user.tag.toLowerCase().includes(toFind);
+      });
+    }
+    if (!target && toFind) {
+      target = message.guild.members.find(member => {
+        return member.displayName.toLowerCase().includes(toFind);
+      });
+    }
+    //if (!target) target = message.member;
+
+    return target;
+  },
   formatDate: function(date) {
     return new Intl.DateTimeFormat("fr-FR").format(date);
   },
@@ -63,8 +89,7 @@ module.exports = {
       });
     }
     
-   // if (!target) target = message.member;
-
+   
     return target;
   }
 };

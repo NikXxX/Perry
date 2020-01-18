@@ -3,9 +3,9 @@ module.exports = {
     name: "ping",
     aliases: ["p"],
     usage: "ping",
-    category: "ℹ️ Informations",
+    category: "<:general:667626887014514698> Général",
     description: "Donne la latence du bot.",
-    permission: ["SEND_MESSAGES"],
+    permission: [],
     run: async (client, message, args) => {
         const msg = await message.channel.send(`🏓 Calcul du ping en cours`);
 

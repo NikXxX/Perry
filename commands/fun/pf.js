@@ -1,7 +1,7 @@
 module.exports = {
   name: "pf",
-  permission: ["SEND_MESSAGES"],
-  category: ":tada: Fun",
+  permission: [],
+  category: "<:fun:667627121107271681> Fun",
   usage: "pf <pile | face>",
   run: async (client, message, args) => {
     let choice = ["pile", "face"];

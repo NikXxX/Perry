@@ -1,8 +1,8 @@
 module.exports = {
   name: "botinfos",
   aliases: ["bi"],
-  category: "ℹ️ Informations",
-  permission: ["SEND_MESSAGES"],
+  category: "<:general:667626887014514698> Général",
+  permission: [],
   description: "Donne les informations de Perry",
   usage: "botinfos",
   run: (client, message) => {

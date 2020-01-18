@@ -7,9 +7,9 @@ module.exports = {
   ownerOnly: false,
   name: "userinfos",
   aliases: ["ui"],
-  category: "ℹ️ Informations",
+  category: "<:general:667626887014514698> Général",
   description: "Donne des informations sur un utilisateurs.",
-  permission: ["SEND_MESSAGES"],
+  permission: [],
   usage: "userinfos <pseudo | id | mention | discriminateur>",
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));

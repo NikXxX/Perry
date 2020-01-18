@@ -1,12 +1,12 @@
 const { get } = require("axios");
-const endpoint = "pixelate";
+const endpoint = "greyscale";
 const { getMember } = require("../../functions.js");
 
 module.exports = {
   name: endpoint,
   description: `Met le filtre ${endpoint} sur une image.`,
   permission: ["SEND_MESSAGES"],
-  category: "🎞️ Filtres",
+  category: "<:picture:667629000708980785> Images",
   usage: `${endpoint} < username | mention | id >`,
   run: (client, message, args) => {
     const member = getMember(message, args.join(" "));

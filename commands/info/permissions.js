@@ -1,8 +1,8 @@
 module.exports = {
   name: "permissions",
   aliases: ["perm", "perms", "permission"],
-  category: "ℹ️ Informations",
-  permission: ["SEND_MESSAGES"],
+  category: "<:general:667626887014514698> Général",
+  permission: [],
   run: (client, message, args) => {
     const { getMember } = require("../../functions.js")
     const membre = getMember(message,args.join(" "))
