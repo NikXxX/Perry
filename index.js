@@ -70,7 +70,7 @@ const player = new Player(client, "AIzaSyCSeZlhNMUi7X1EqAM6dTHHG6Rh-daWaL8", {
 const { ddblAPI } = require("ddblapi.js");
 const ddbl = new ddblAPI(
   "658579503135588392",
-  "d732c57ad66ff7b2c2fa264a9919c17d8d7e525ee09e0389719fdd1dddf8c409637ca66fe42f2ea6c7d895f5ac93c51d2a0daa85833ca0489d807f4b699eef3e"
+  ""
 );
 
 ddbl.postStats(`${client.guilds.size}`).then(console.log);
