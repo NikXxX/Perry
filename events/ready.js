@@ -1,15 +1,38 @@
-module.exports  = (client) => {
-  console.log(`Hi, ${client.user.username} is now online !`);
-  const abcAPI = require("abcapi");
-  abcAPI.login(
-    "ff40a1def470c095420467d167d4fd77649c17d911e12d1f20cda0dde37863867dc02e3e25d6896b4963c032709767ffeb17c60c8fe0c859864b985b06bb424d",
-    client.user.id
-  );
-  abcAPI.post(client.guilds.size, client.users.size);
-  client.user.setActivity("AGENT B", { type: "PLAYING" });
-};
-module.exports.config = {
-  name: "ready",
-  type: "event",
-  enabled: true
-};
+const Discord = require("discord.js");
+
+module.exports = class {
+
+    constructor (client) {
+        this.client = client;
+    }
+
+    async run () {
+
+        let client = this.client;
+
+        // Logs some informations using the logger file
+        client.logger.log(`Loading a total of ${client.commands.size} command(s).`, "log");
+        client.logger.log(`${client.user.tag}, ready to serve ${client.users.size} users in ${client.guilds.size} servers.`, "ready");
+
+        // Update bot's status
+
+        const statusList = require("../config.js").status.list || [],
+        version = require("../package.json").version;
+        let i = 0;
+        setInterval(() => {
+
+            let status = statusList[parseInt(i, 10)];
+            
+            let statusContent = status.content
+            .replace(/{usersCount}/g, client.users.size)
+            .replace(/{guildsCount}/g, client.guilds.size);
+    
+            client.user.setActivity(statusContent, { type: status.type });
+    
+            if(statusList[parseInt(i+1, 10)]) i++
+            else i = 0;
+
+        }, require("../config.js").status.updateEvery);
+
+    }
+}  
